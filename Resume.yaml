@@ -1,8 +1,11 @@
 locale:
-  language: en
-rendercv_settings:
-  date: "2025-03-27"
-  bold_keywords: []
+  language: english
+settings:
+  render_command:
+    pdf_path: "Resume.pdf"
+    dont_generate_html: true
+    dont_generate_markdown: true
+    dont_generate_png: true
 cv:
   name: Alejandro Núñez Pérez
   location: Granada, Spain
@@ -18,12 +21,10 @@ cv:
     about me:
       - Hello! I'm Alejandro, a Software Engineer with over five years of
         experience across multiple roles and a hunger for learning new things.
-      - When it comes to work, I am most interested in
-        information transformation pipelines, distributed systems, and
-        knowledge sharing. Particularly, I have a soft spot for Java and the
-        JVM ecosystem.
-      - Personally, my hobbies include finances, anything related to maps, and
-        board games.
+      - I'm passionate about technology and enjoy working in dynamic environments
+        that challenge me to grow both personally and professionally.
+      - My interests include continuous improvement, quality assurance, distributed
+        systems, and customer satisfaction.
     skills and qualifications:
       - label: Customer Support Veteran
         details:
@@ -46,57 +47,55 @@ cv:
           project constraints.
     professional experience:
       - company: Real-Time Innovations
-        position: Senior Software Engineer
-        date:
+        position: Senior Software Engineer, Development
         start_date: 2024-04
         end_date: present
-        location: Hybrid (Granada or Remote)
-        summary: Part of the API, later GPP development teams focused on the
-          Connext Professional products.
         highlights:
-          - Maintained an internal, distributed testing Python framework for
-            RTI products.
-          - Improved the Java API by introducing new features to align with
-            other APIs. Also identified memory leaks and fixing >90%
-            of the reported issues.
-          - Developed a new internal web server for storing and visualizing
-            performance data using FastAPI, with a MongoDB database backend.
+          - Maintained and enhanced an internal distributed testing framework
+            in Python, ensuring comprehensive quality assurance across RTI's
+            product suite.
+          - Enhanced the Java API with new features to achieve cross-API
+            consistency while identifying and resolving memory leaks,
+            eliminating over 90% of reported issues.
+          - Architected and implemented a performance monitoring web server
+            using FastAPI and MongoDB, enabling real-time data visualization
+            and analytics for internal development teams.
       - company: Real-Time Innovations
-        position: Software Engineer
-        date:
+        position: Software Engineer, Support
         start_date: 2019-11
         end_date: 2024-04
-        location: Hybrid (Granada or Remote)
-        summary:
-          Part of the Support team, providing low-level, technical support
-          to worldwide customers across multiple industry verticals, with a
-          focus on the EMEA and APAC regions.
         highlights:
-          - Resolved customer time-sensitive escalations on critical
-            deployments.
-          - Maintained multiple branches of support releases, built and
-            delivered patches.
-          - Mentored new hires and interns, providing training on
-            troubleshooting and debugging techniques.
+          - Resolved time-critical customer escalations on mission-critical
+            deployments across EMEA and APAC regions, ensuring minimal downtime
+            and maintaining high customer satisfaction across diverse industry
+            sectors.
+          - Managed multiple support release branches, delivering targeted
+            patches and hotfixes to address customer-specific issues while
+            maintaining product stability.
+          - Mentored and trained new hires and interns in advanced
+            troubleshooting methodologies and debugging techniques,
+            accelerating their technical proficiency and team integration.
     education:
-      - institution: Ediae, Cámara de Comercio
-        area: Business
+      - institution: ediae, Cámara de Comercio
+        area: Business Administration
         degree: MBA
-        date:
         start_date: 2024-11
-        end_date: present
+        end_date: 2025-08
         location: Granada, Spain
-        summary: General MBA focused on wide-area knowledge of managing a business, including Strategy, Marketing and Finances.
+        summary:
+          Comprehensive business management program covering finance,
+          marketing, operations, and leadership skills.
       - institution: Universidad de Granada
         area: Computer Science
         degree: BS
-        date:
         start_date: 2015-09
         end_date: 2019-09
         location: Granada, Spain
-        summary: Basics of Computer Science, including Algorithm Design, Data Structures, Networking and Distributed Systems.
+        summary:
+          Studied core computer science topics including algorithms,
+          data structures, software engineering, databases, and networking.
         highlights:
-          - Honors in Modern Multi-paradigm Programming.
+          - Honors in Modern Multi-paradigm Programming, using Scala.
 design:
   theme: engineeringclassic
   page:
@@ -105,21 +104,26 @@ design:
     bottom_margin: 1cm
     left_margin: 1cm
     right_margin: 1cm
+    show_footer: false
   colors:
     name: rgb(228, 120, 0)
     section_titles: rgb(228, 120, 0)
-  text:
-    font_size: 11pt
-    alignment: justified
-  links:
-    use_external_link_icon: true
+  typography:
+    font_size:
+      body: "10.5pt"
+      name: "26pt"
+      connections: "9pt"
+      section_titles: "1.2em"
+    small_caps:
+      connections: true
+      section_titles: true
+    line_spacing: "0.65em"
+    alignment: justified-with-no-hyphenation
   header:
-    name_font_size: 28pt
-    separator_between_connections: "•"
-    use_urls_as_placeholders_for_connections: true
     alignment: center
+    connections:
+      separator: "•"
+      display_urls_instead_of_usernames: true
   section_titles:
-    line_thickness: 1pt
-  entries:
-    allow_page_break_in_sections: false
-    allow_page_break_in_entries: false
+    line_thickness: "1.2pt"
+    type: with_partial_line
