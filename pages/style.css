@@ -1,0 +1,185 @@
+/* ── Reset / base ─────────────────────────────────────────── */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --accent:        #1a73e8;
+    --accent-hover:  #1558b0;
+    --bg:            #e8e8e8;
+    --surface:       #ffffff;
+    --text-muted:    #555;
+    --radius:        8px;
+    --fab-size:      3.25rem;
+    --ease:          0.22s ease;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+}
+
+/* ── Loading overlay ──────────────────────────────────────── */
+
+#loading {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background: var(--surface);
+    z-index: 100;
+    transition: opacity var(--ease);
+}
+
+#loading.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.spinner {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 3px solid #ddd;
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+#loading p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    letter-spacing: 0.01em;
+}
+
+/* ── PDF object ───────────────────────────────────────────── */
+
+#pdf-viewer {
+    display: block;
+    width: 100%;
+    height: 100vh;
+    border: none;
+}
+
+/* ── Fallback ─────────────────────────────────────────────── */
+
+.fallback {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    gap: 1.25rem;
+    text-align: center;
+    padding: 2rem;
+    background: var(--surface);
+}
+
+.fallback [data-icon] {
+    font-size: 3rem;
+    line-height: 1;
+    user-select: none;
+}
+
+.fallback p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 1rem;
+    max-width: 28ch;
+    line-height: 1.5;
+}
+
+/* ── Shared button ────────────────────────────────────────── */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.7rem 1.4rem;
+    background: var(--accent);
+    color: #fff;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: background var(--ease), transform var(--ease);
+}
+
+.btn:hover  { background: var(--accent-hover); }
+.btn:active { transform: scale(0.97); }
+
+/* ── Floating Download Button (FAB) ───────────────────────── */
+
+#fab {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 200;
+    width: var(--fab-size);
+    height: var(--fab-size);
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+    text-decoration: none;
+    transition: background var(--ease), transform var(--ease), box-shadow var(--ease), opacity var(--ease);
+    /* Start hidden; JS fades it in after load */
+    opacity: 0;
+    pointer-events: none;
+}
+
+#fab.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#fab:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+}
+
+#fab:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
+
+#fab svg {
+    width: 1.2rem;
+    height: 1.2rem;
+    pointer-events: none;
+    flex-shrink: 0;
+}
+
+/* Tooltip */
+#fab::before {
+    content: attr(aria-label);
+    position: absolute;
+    right: calc(100% + 0.6rem);
+    background: rgba(0, 0, 0, 0.72);
+    color: #fff;
+    font-size: 0.76rem;
+    white-space: nowrap;
+    padding: 0.3rem 0.65rem;
+    border-radius: 4px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity var(--ease);
+}
+
+#fab:hover::before {
+    opacity: 1;
+}

@@ -2,7 +2,7 @@ locale:
   language: english
 settings:
   render_command:
-    pdf_path: "Resume.pdf"
+    pdf_path: "pages/alejnp_cv.pdf"
     dont_generate_html: true
     dont_generate_markdown: true
     dont_generate_png: true
@@ -16,7 +16,7 @@ cv:
     - network: LinkedIn
       username: alejnp
     - network: GitHub
-      username: alxe
+      username: alejnp
   sections:
     about me:
       - Hello! I'm Alejandro, a Software Engineer with over five years of

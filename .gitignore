@@ -1,7 +1,8 @@
 
 .DS_Store
-*venv/
-*vscode/
-*output/
-
+.venv/
+.vscode/
 rendercv_output/
+
+# CI-generated artifact — do not commit
+pages/alejnp_cv.pdf

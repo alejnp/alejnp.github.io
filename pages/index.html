@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CV of Alejandro Núñez Pérez — Software Engineer with over five years of experience.">
+    <meta name="author" content="Alejandro Núñez Pérez">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Alejandro Núñez Pérez — CV">
+    <meta property="og:description" content="Software Engineer with over five years of experience across multiple roles.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://me.alejnp.es/">
+
+    <link rel="canonical" href="https://me.alejnp.es/">
+    <link rel="icon" href="https://github.com/alejnp.png">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Alejandro Núñez Pérez — CV</title>
+</head>
+
+<body>
+
+    <!-- Loading overlay: visible until the PDF (or fallback) is ready -->
+    <div id="loading" role="status" aria-label="Loading CV…">
+        <div class="spinner" aria-hidden="true"></div>
+        <p>Loading CV...</p>
+    </div>
+
+    <!-- PDF viewer ─────────────────────────────────────────────
+         The inner #inline-fallback renders only when the browser
+         cannot display the PDF. JS uses it as a sentinel to detect
+         failure without any custom events.
+    ──────────────────────────────────────────────────────────── -->
+    <object id="pdf-viewer" data="alejnp_cv.pdf" type="application/pdf"
+            aria-label="Alejandro Núñez Pérez, CV (PDF)">
+        <div id="inline-fallback"></div>
+    </object>
+
+    <!-- Nicer fallback shown by JS (mobile / PDF load failure)
+         Also acts as a <noscript>-accessible fallback since it has
+         display:none only via JS; see noscript block below.       -->
+    <div id="fallback" class="fallback" style="display:none">
+        <span data-icon aria-hidden="true">📄</span>
+        <p>PDF preview is not available in this browser.</p>
+        <a href="alejnp_cv.pdf" download class="btn">
+            <!-- Download icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                 fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round"
+                 aria-hidden="true">
+                <path d="M12 15V3m0 12-4-4m4 4 4-4"/>
+                <path d="M2 17v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2"/>
+            </svg>
+            Download CV (PDF)
+        </a>
+    </div>
+
+    <!-- No-JS fallback: if JS is disabled, reveal the fallback via CSS -->
+    <noscript>
+        <style>
+            #loading  { display: none !important; }
+            #fallback { display: flex !important; }
+        </style>
+    </noscript>
+
+    <!-- Floating download button ───────────────────────────────
+         Hidden until JS marks it .visible after load.           -->
+    <a id="fab" href="alejnp_cv.pdf" download aria-label="Download CV">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+            <path d="M12 15V3m0 12-4-4m4 4 4-4"/>
+            <path d="M2 17v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2"/>
+        </svg>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
